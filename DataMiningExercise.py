@@ -11,6 +11,7 @@ searches = pd.DataFrame(pd.read_csv('searches.csv', error_bad_lines = False, del
 
 bookings.dtypes
 bookings.describe()
+
 # strip out spaces in the column names
 bookings.columns = [x.replace(' ','') for x in list(bookings.columns)]
 searches.columns = [x.replace(' ','') for x in list(searches.columns)]
@@ -58,11 +59,12 @@ MMB_airports = list(['AGP',
                      'MAD',
                      'BCN'])
 
+# need date in month
 searches_MMB = searches[searches['Destination'].isin(MMB_airports)][['Date','Destination']]
 
 searches_MMB_pivot = pd.pivot_table(searches_MMB, rows='Date', cols='Destination', aggfunc = np.size)
 
-
+# need new legend
 plt.figure()
 searches_MMB_pivot.plot()
 pylab.show()
