@@ -11,6 +11,7 @@ searches = pd.DataFrame(pd.read_csv('searches.csv', error_bad_lines = False, del
 
 bookings.dtypes
 bookings.describe()
+# strip out spaces in the column names
 bookings.columns = [x.replace(' ','') for x in list(bookings.columns)]
 searches.columns = [x.replace(' ','') for x in list(searches.columns)]
 
