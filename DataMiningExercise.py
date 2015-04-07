@@ -28,14 +28,15 @@ searches.columns = [x.replace(' ','') for x in list(searches.columns)]
 ### The number of lines in searches is 20390198
 
 
-### Second exercise ###
-# Top 10 arrival airports in 2013 by number of passengers
-
-bookings2013 = bookings[bookings['year'] == 2013]
-Arrport_Pax_2013 = bookings2013[['arr_port','pax']].groupby(['arr_port']).sum()
-Arrport_Pax_2013 = Arrport_Pax_2013.sort(columns = 'pax', ascending = False)
-Top10_Arrport = Arrport_Pax_2013.sort(columns = 'pax', ascending = False).head(10)
-print(Top10_Arrport)
+##### Second exercise ###
+### Top 10 arrival airports in 2013 by number of passengers
+##
+##bookings2013 = bookings[bookings['year'] == 2013]
+##Arrport_Pax_2013 = bookings2013[['arr_port','pax']].groupby(['arr_port']).sum()
+##Arrport_Pax_2013 = Arrport_Pax_2013.sort(columns = 'pax', ascending = False)
+##Top10_Arrport = Arrport_Pax_2013.head(10)
+##
+##print(Top10_Arrport)
 
 #  Results:
 #              pax
