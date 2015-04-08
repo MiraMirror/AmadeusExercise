@@ -8,22 +8,12 @@ import matplotlib.pyplot as plt
 import pylab
 
 def index(request):
-    return HttpResponse("Hello, world. You're at the polls index.")
+    return HttpResponse("Hello, you can extract top N arriving airports searches from here!")
 
 def detail(request, n):
 
-	##bookings = pd.DataFrame(pd.read_csv('bookings.csv', error_bad_lines = False, delimiter = '^'))
-
-
-	bookings = pd.DataFrame(pd.read_csv('bookings_sample.csv'))
-	bookings.columns = [x.replace(' ','') for x in list(bookings.columns)]
-
-	### Second exercise ###
-	# Top N arrival airports in 2013 by number of passengers
 	parameter = int(n)
-	bookings2013 = bookings[bookings['year'] == 2013]
-	Arrport_Pax_2013 = bookings2013[['arr_port','pax']].groupby(['arr_port']).sum()
-	Arrport_Pax_2013 = Arrport_Pax_2013.sort(columns = 'pax', ascending = False)
+	Arrport_Pax_2013 = pd.DataFrame(pd.read_csv("Ex2_arrportbypax.csv"))
 	TopN_Arrport = Arrport_Pax_2013.head(parameter)
 	
 	TopN_Arrport.to_json("TopN_Arrport.json")
